@@ -161,6 +161,46 @@ Interpolation Synatx
 Interpolation refers to embedding expressions into marked up text.
 */
 
+/*
+<%= 
+Outputs the value into the template (HTML escaped)
+
+<h3> <%= anujkumar.toUpperCase(); %> </h3>
+<h4> <%= ["anuj", "mayank","bhadra"][2] %> </h4>
+*/
+
+/*
+Passing data to EJS
+
+app.get("/rolldice", (req, res) => {
+    let num = Math.floor(Math.random()* 6) + 1;
+    res.render("rollDice.ejs", { diceVal: num });
+});
+
+<h1>Your dice gave value : <%= diceVal %></h1> 
+*/
+
+/*
+Instagram EJS
+Create a basic template for instagram page based on following route:
+/*
+
+Conditional statements 
+addinf conditional into ejs
+
+<% if(diceVal == 6) { %>
+<h2>Nice! Roll dice again.</h2>
+<% } %>
+
+*/
+
+/*
+Loops in Ejs
+
+<% for(user of followers) { %>
+<li><%= user %></li>
+<% } %> 
+
 
 const express = require("express");
 const app = express();
