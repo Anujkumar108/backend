@@ -31,3 +31,12 @@ app.post("/register", (req, res) => {
 app.listen(port, () => {
     console.log(`listening to port ${port}`);
 });
+
+/*
+Handling Post requests :-
+1) Set up POST request route to get some response
+2) Parse POST request data
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.join());
+*/
