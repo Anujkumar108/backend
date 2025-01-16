@@ -188,6 +188,39 @@ let p2 = new Person("eve", 25);
 
 
 
+// inheritance 
+// // inheritance is a mechanism of 
+
+
+class Mammal { // base class // parent class
+    constructor(name) {
+        this.name = name;
+        this.type = "warm-blooded";
+    }
+
+    eat() {
+        console.log("I am eating");
+    }
+}
+
+class Dog extends Mammal { // child
+    constructor(name) {
+        super(name);
+    }
+    bark() {
+        console.log("wooff..");
+    }
+}
+
+class Cat extends Mammal {  // child
+    constructor(name) {
+        super(name);
+    }
+    meow() {
+        console.log("meow");
+    }
+}
+
 
     
 
