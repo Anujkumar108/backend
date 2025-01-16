@@ -1,3 +1,4 @@
+
 // miscellaneous 
 
 /*
@@ -145,7 +146,47 @@ the built-in object types that has a constructor function.
 
 let p1 = new Person("anuj", 19);
 let p2 = new Person("akhil", 20);
-    
+
+
+//constructors: doesn't return anything & start with small letters.
+
+function Person(name,age) {
+    this.name = name;
+    this.age = age;
+}
+
+Person.prototype.talk = function() {
+    console.log(`Hi, my name is ${this.name}`);
+};
+
+let p1 = new Person("adam", 25);
+let p2 = new Person("eve", 25);
+
+
+//  Classes 
+/*
+Classes are a template for creating objects.
+
+The constructor method is a special method of a class for creating
+and initializing an object instance of that class.
+
+
+*/
+
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    talk() {
+        console.log(`Hi my name is ${this.name}`);
+    }
+}
+
+let p1 = new Person("adam", 25);
+let p2 = new Person("eve", 25);
+
+
 
 
     
