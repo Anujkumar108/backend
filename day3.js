@@ -65,3 +65,43 @@ app.listen(port, () => {
 });
 
 */
+
+
+const student1 = {
+    name: anuj,
+    age: 19,
+    marks: 90,
+};
+
+const student2 = {
+    name: "arya",
+    age: 20,
+    marks: 99,
+};
+
+const student3 = {
+    name: "akshu",
+    age:  22,
+    marks: 93,
+};
+
+//in oops, we connect programming to real world
+
+/*
+Object prototypes-
+prototypes are the mechanism of which javascript object inherits features from one another.
+
+It is like a single template objects inherit methods and properties from without having
+their own copy.
+
+arr._proto_(reference)
+Array.prototype(actual object)
+String.prototype
+
+note: ebery object in js has a built in property, which is called its prototype. The prototype is
+itself an object, so the prototype, will have its own prototype, making what's called a prototype
+chain. the chain ends when we reach a protype has null for its own prototype.
+
+*/
+
+
