@@ -101,7 +101,52 @@ String.prototype
 note: ebery object in js has a built in property, which is called its prototype. The prototype is
 itself an object, so the prototype, will have its own prototype, making what's called a prototype
 chain. the chain ends when we reach a protype has null for its own prototype.
-
 */
 
+let arr = [1,2,3];
+let arr2 = [1,2,3];
+
+arr.sayHello = () => {
+    console.log("hello!, i am arr");
+};
+
+arr2.sayHello = () => {
+    console.log("hello!, i am arr");
+};
+
+
+//Factory Functions 
+A function that create objects 
+
+function PersonMaker (name, age) {
+    const person = {
+        name: name,
+        age: age,
+        talk() {
+            console.log(`Hi my name is ${this.name}`);
+        },
+    };
+
+    return person;
+}
+
+
+//New Operator
+The new operator lets developers create an instance of a user-defined object type or of one of 
+the built-in object types that has a constructor function.
+
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+}    
+    Person.prototype.talk = function () {
+        console.log(`hi, my name is ${this.name}`);
+    };
+
+let p1 = new Person("anuj", 19);
+let p2 = new Person("akhil", 20);
+    
+
+
+    
 
