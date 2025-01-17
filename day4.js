@@ -1,4 +1,4 @@
-// REST 
+//1. REST 
 /*
 Representational State Transfer
 REST is an architectural style that defines a set of 
@@ -7,7 +7,7 @@ constraints to be used for creating web services.
 */
 
 
-//CRUD operations
+// 2. CRUD operations
 
 Create
 Read
@@ -49,4 +49,87 @@ app.listen(port,() => {
 });
 
 
+// 3. index route 
+// Implement : GET /posts
+// //Index Route
+
+// GET     /posts    to get data for all parts
+
+
+file name - index.js
+
+const express = require("express");
+const app = express();
+const port = 3000;
+const path = require("path");
+
+app.use(express.urlencoded({ extended: true }));
+
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+
+app.use(express.static(path.join(__dirname, "public")));
+
+let posts = [
+    {
+        username: "anujkumar",
+        content: "I love coding!"
+    },
+    {
+        username: "mayank thakur",
+        content: "consistency is the key to success"
+    },
+    {
+        username: "rudra naresh",
+        content: "har har mahadev!"
+    }
+];
+
+app.get("/posts",(req, res) => {
+    res.render("index.ejs", {posts});
+});
+
+app.listen(port,() => {
+  console.log(`Server is listening on ${port}`);
+});
+
+
+/*folder name -> views/index.ejs
+file name index.ejs */
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All posts</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+     <h1>Quora Posts</h1>
+     <% for(post of posts) { %>
+         <div class="post">
+            <h3 class="user">@<%= post.username %> </h3>
+            <h4 class="content"><%= post.content %> </h4>
+         </div>
+<%     }    %>
+</body>
+</html>
+
+/*public folder - public/style.css
+file name style.css */
+
+h1{
+    color: maroon;
+}
+
+.post {
+    background-color:darkkhaki;
+}
+
+.user {
+    font-style: italic;
+}
+
+// 4. CREATE AND NEW ROUTE 
 
