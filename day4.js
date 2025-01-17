@@ -162,6 +162,9 @@ POST       /posts          to add a new post
 </body>
 </html>
 
+// note: get req only in query parameters
+// post req only uses body
+
 // main file ~ Index.js :
 
 const express = require("express");
@@ -212,6 +215,8 @@ app.listen(port,() => {
 });
 
 
+// 5. Redirect - 
+   // res.redirect ( URL )
 
 
 
