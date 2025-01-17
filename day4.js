@@ -164,6 +164,8 @@ POST       /posts          to add a new post
 
 // note: get req only in query parameters
 // post req only uses body
+// in res.send() we send text,html,object
+// res.render() -> ejs // we render the page ,send the rendered HTML as a response to the client.
 
 // main file ~ Index.js :
 
