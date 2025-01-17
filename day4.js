@@ -220,6 +220,48 @@ app.listen(port,() => {
 // 5. Redirect - 
    // res.redirect ( URL )
 
+// index.js - main file -
+//submission path
+app.post("/posts",(req,res) => {
+   let {username, content} = req.body;
+   posts.push({ username, content });
+   res.redirect("/posts");
+});
+
+// index.ejs file -
+<a href="http://localhost:3000/posts/new">Create new Post</a>
 
 
+// 6. Implement : GET/posts/:id
+ Show route 
+
+GET     /posts/:id         to get one post (using id)
+
+views/show.ejs-
+   
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post in Detail</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h2>Here is your post in detail</h2>
+    <p>Post id : <%= post.id %> </p>
+<div class="post">
+    <h3 class="user">@<%=post.username%></h3>
+    <h4><%= post.content %></h4>
+</div>
+</body>
+</html>
+
+index.js - file name
+app.get("/posts/:id",(req,res) => {
+    let {id} = req.params;
+    console.log(id);
+    let post = posts.find((p) => id === p.id);
+    res.render("show.ejs", { post });
+});
 
