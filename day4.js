@@ -265,3 +265,35 @@ app.get("/posts/:id",(req,res) => {
     res.render("show.ejs", { post });
 });
 
+//7 Create id for Posts
+/* UUID Package
+Universally unique indentifier */ 
+
+    npm install uuid
+to create a random id 
+
+// to require uuid in server
+const path = require("path");
+const { v4: uuidv4 } = require('uuid'); 
+// to require uuid in server
+
+// acquire id like this in post
+    {
+        id: uuidv4(),
+        username: "rudra naresh",
+        content: "har har mahadev!"
+    }
+// acquire id like this in post
+
+// push id here - 
+app.post("/posts",(req,res) => {
+   let {username, content} = req.body;
+   let id = uuidv4();
+   posts.push({ id, username, content });
+   res.redirect("/posts");
+});
+// push id here-
+
+
+
+
