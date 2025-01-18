@@ -9,10 +9,10 @@ constraints to be used for creating web services.
 
 // 2. CRUD operations
 
-Create
-Read
-Update
-Delete
+Create - for create we have to sent POST req
+Read - for READ WE HAVE to sent GET request
+Update - use PATCH request to update
+Delete - for delete we have to sent delete request
 
 GET retrieves resources.
 POST submits its new data to the server.
