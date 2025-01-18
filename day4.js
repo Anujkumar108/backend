@@ -233,7 +233,7 @@ app.post("/posts",(req,res) => {
 
 
 // 6. Implement : GET/posts/:id
- Show route 
+ //Show route 
 
 GET     /posts/:id         to get one post (using id)
 
@@ -293,6 +293,22 @@ app.post("/posts",(req,res) => {
    res.redirect("/posts");
 });
 // push id here-
+
+//8 Implement: PATCH /posts/:id
+/* Update Route
+
+PATCH     /posts/:id   to update specefic post */
+
+app.patch("/posts/:id", (req,res) => {
+    let {id} = req.params;
+    let newContent = req.body.content;
+    let post = posts.find((p) => id === p.id);
+    post.content = newContent;
+    console.log(post);
+    res.send("patch request working");
+});
+
+
 
 
 
