@@ -133,6 +133,7 @@ SHOW TABLES;
 
 /*
 //Table Queries 
+tuples is a row in sql 
 
 ~Create 
 ~Insert
