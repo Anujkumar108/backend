@@ -1,12 +1,20 @@
 // SQL
 /* 
-Our 1st Database: SQL
+Our 1st Database: SQL 
+
+sql is case insensitive language 
+sql stands for structured Query language.
 
 MySQl is a database (DB)
 SQL is a (Language)
 
 what is a database ?
 It is a collection of data in format that can be be easily accessed.
+
+what is dbms ?
+dbms is a layer of databases.
+allows you to create, manage, and manipulate a database 
+Sql queries is under the dmbs.
 
 Why databases ?
 1) can store large data
@@ -88,6 +96,27 @@ VALUES
 
 SELECT * FROM student;
 */
+
+ex. 
+CREATE DATABASE TECH;
+
+USE TECH;
+
+CREATE TABLE employees (
+   roll_no INT,
+   name VARCHAR(30),
+   age INT
+);
+
+INSERT into employees
+VALUES
+(8, "anuj", 21),
+(12, "bhavika", 22),
+(17, "akira", 21); 
+
+SELECT * FROM employees;
+
+
 
 /*
 //Database Queries 
