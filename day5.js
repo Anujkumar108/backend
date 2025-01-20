@@ -138,9 +138,9 @@ tuples is a row in sql
 ~Create 
 ~Insert
 ~Update 
-~Alter 
-~Truncate
-~Delete
+~Alter - table ke schema ko alter kar sakte hai /columns ko change kar sakte hai
+~Truncate - delete all data from a table 
+~Delete - delete only a table from a database 
 
 //create table (schema/columns)
 
@@ -253,3 +253,38 @@ SELECT * FROM table_name;
 Ex.
 SELECT DISTINCT age FROM user;
 */
+
+CREATE DATABASE college;
+
+CREATE DATABASE IF NOT EXISTS instagram;
+
+USE instagram;
+
+CREATE TABLE user (
+id INT,
+age INT,
+name VARCHAR(30) NOT NULL,
+email VARCHAR(50) UNIQUE,
+followers INT DEFAULT 0,
+following INT,
+CONSTRAINT CHECK (age >= 13),
+PRIMARY KEY (id)
+);
+
+CREATE TABLE post (
+id INT,
+content VARCHAR(100),
+user_id INT,
+FOREIGN KEY (user_id) REFERENCES user(id)
+);
+
+
+INSERT INTO user
+(id, age, name, email, followers, following)
+VALUES
+(1, 19 , "anuj", "anuj@yahoo.in", 45, 54),
+(2, 21 , "akira", "akira@yahoo.in", 45, 54),
+(3, 25 , "ashima", "ashima@yahoo.in", 45, 54),
+(4, 28 , "agni", "agni@yahoo.in", 45, 54);
+
+SELECT *  FROM user;
