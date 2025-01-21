@@ -540,6 +540,10 @@ Truncate (to delete table's data)
 
 TRUNCATE TABLE table_name;
 
+ex.
+DROP TABLE user;
+
+
 */
 
 /*
