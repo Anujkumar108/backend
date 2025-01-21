@@ -341,6 +341,11 @@ Sets an upper limit on number of (tuples) rows to be returned
 SELECT col1, col2 FROM table_name
 LIMIT number;
 
+EX. 
+SELECT name, age, email
+FROM user
+LIMIT 3;
+
 */
 
 /*
@@ -349,6 +354,12 @@ To sort in ascending (ASC) or descending order (DESC)
 
 SELECT col1, col2 FROM table_name
 ORDER BY col_name(s) ASC;
+
+ex.
+SELECT name, age, followers
+FROM user
+ORDER BY followers ASC;
+
 
 */
 
@@ -363,8 +374,13 @@ and return a single value.
 - SUM()
 - AVG()
 
-SELECT max(marks)
-FROM student;
+ex.1
+SELECT max(followers)
+FROM user;
+
+ex.2
+SELECT max(age)
+FROM user;
 
 */
 
