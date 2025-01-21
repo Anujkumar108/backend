@@ -566,6 +566,42 @@ Insert following data in the table :
 - Delete the salary column for teacher table
 
 */
+/*
+CREATE DATABASE IF NOT EXISTS college;
+
+USE college;
+
+CREATE TABLE TEACHER (
+id INT PRIMARY KEY,
+name VARCHAR(30) NOT NULL,
+subject VARCHAR(50),
+salary INT 
+);
+
+INSERT INTO teacher
+(id, name, subject, salary)
+VALUES
+(1, "anuj", "aiml", 4200000),
+(2, "amaan", "webdev", 200000),
+(3, "ashika", "deveops", 800000);
+
+SELECT * FROM teacher;
+
+SELECT * FROM teacher
+WHERE salary > 55000; 
+
+ALTER TABLE teacher
+CHANGE COLUMN salary ctc INT;
+
+UPDATE teacher
+SET ctc = ctc + ctc * 0.25;
+
+ALTER TABLE teacher
+ADD COLUMN city VARCHAR(50) DEFAULT "Gurgaon";
+*/
+
+
+
 
 /*
 Practise Qs
@@ -590,6 +626,50 @@ marks 70-80, grade = A
 marks 60-70, grade = B
 
 */
+CREATE TABLE student (
+roll_no INT PRIMARY KEY,
+name VARCHAR(50) NOT NULL,
+city VARCHAR(50),
+marks INT
+); 
+
+INSERT INTO student 
+(roll_no, name, city, marks)
+VALUES
+(110, "adam", "Delhi", 76),
+(108, "bob", "Mumbai", 65),
+(124, "casey", "Pune", 94),
+(112, "duke", "Pune", 80);
+
+/*
+SELECT  * FROM student
+WHERE marks > 75;
+
+SELECT DISTINCT city
+FROM student;
+
+SELECT city, max(marks)
+FROM student
+GROUP BY city;
+
+SELECT avg(marks)
+FROM student;
+
+UPDATE student 
+SET grade = "O"
+WHERE marks >= 80;
+
+UPDATE student 
+SET grade = "A"
+WHERE marks >= 70 AND marks < 80;
+
+UPDATE student 
+SET grade = "B"
+WHERE marks >= 60 AND marks < 70;
+*/
+
+
+
 
 //NODE WITH SQL
 
