@@ -382,6 +382,10 @@ ex.2
 SELECT max(age)
 FROM user;
 
+ex.3
+SELECT min(age)
+FROM user;
+
 */
 
 /*
@@ -396,6 +400,17 @@ GROUP BY col_name(s);
 
 *Generally we use group by with some aggregation function.
 
+ex.
+SELECT age, count(id)
+FROM user
+GROUP BY age;
+
+ex.
+SELECT age, max(followers)
+FROM user
+GROUP BY age;
+
+
 */
 
 /*
@@ -406,10 +421,17 @@ But it is used when we want to apply any condition after grouping.
 SELECT col1, col2
 FROM table_name
 GROUP BY col_name(s)
-HAVING condition 
+HAVING condition ;
 
 - WHERE is for the table, HAVING is for a group
 - Grouping is necessary for HAVING
+
+ex.
+SELECT age, max(followers)
+FROM user
+GROUP BY age
+HAVING max(followers) > 200;
+
 
 */
 
@@ -422,6 +444,14 @@ WHERE condition
 GROUP BY columns 
 HAVING condition
 ORDER BY column(s) ASC;
+
+ex.
+SELECT age, max(followers)
+FROM user
+GROUP BY age
+HAVING max(followers) > 200
+ORDER BY age DESC;
+
 */
 
 /*
@@ -433,6 +463,14 @@ UPDATE table_name
 SET col1 = vol1, col2 - val2
 WHERE condition;
 
+ex.
+UPDATE user 
+SET followers = 600
+WHERE age = 16;
+
+//command for safely run the update command
+SET SQL_SAFE_UPDATES = 0;
+
 */
 
 /*
@@ -441,10 +479,21 @@ DELETE table
 
 DELETE FROM table_name
 WHERE condition;
+
+ex.
+DELETE FROM user
+WHERE age = 21;
+
+//after this command run this 
+SELECT * FROM user;
+
 */
 
 /*
 Alter (to change the schema)
+
+in columns (to perform these operations we use alter)
+name,age,datatype,constraints,add,delete
 
 ADD column
 ALTER TABLE table_name
