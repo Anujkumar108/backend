@@ -507,6 +507,32 @@ RENAME Table
 ALTER TABLE table_name
 MODIFY col_name new_datatype new_constraint;
 
+ex.
+ALTER TABLE user
+DROP COLUMN age;
+
+SELECT * FROM user;
+
+ex.
+ALTER TABLE user
+ADD COLUMN city VARCHAR(25) DEFAULT "Delhi"; 
+
+ex. 
+ALTER TABLE user
+DROP COLUMN age;
+
+ex.
+ALTER TABLE instaUser
+RENAME to user;
+
+ex.
+ALTER TABLE user
+CHANGE COLUMN followers subs INT DEFAULT 0;
+
+SELECT * FROM user;
+
+
+
 */
 
 /*
