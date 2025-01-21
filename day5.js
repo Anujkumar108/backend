@@ -288,3 +288,235 @@ VALUES
 (4, 28 , "agni", "agni@yahoo.in", 45, 54);
 
 SELECT *  FROM user;
+
+
+
+// SQL (part 2)
+
+/*
+//Where Clause :
+To define some conditions
+
+SELECT col1, col2 FROM table_name
+WHERE conditions;
+
+ex. 
+SELECT name, age 
+FROM user
+WHERE age < 16;
+
+*/
+
+/*
+//Operators in where :
+
+Arithmetic operators: +(addition), -(subtraction), *(multiplication), /(division), %(modules)
+Comparison operators:  = (equal to), != (not equal to), >, >=, <, <=
+Logical Operators: AND, OR, NOT, IN, BETWEEN, ALL, LIKE, ANY
+Bitwise Operators: & (Bitwise AND), | (Bitwise OR)
+
+X  Y   Result
+0  0     0
+0  1     1
+1  0     1
+1  1     1
+
+*/
+
+/*
+Frequently used Operators :
+
+AND (to check for both conditions to be true)
+OR (to check for one of the conditions to be true)
+BETWEEN (selects for a given range)
+IN (matches any value in the list)
+NOT (to negate the given condition)
+
+*/
+
+/*
+Limit Clause 
+Sets an upper limit on number of (tuples) rows to be returned
+
+SELECT col1, col2 FROM table_name
+LIMIT number;
+
+*/
+
+/*
+Order by Clause 
+To sort in ascending (ASC) or descending order (DESC)
+
+SELECT col1, col2 FROM table_name
+ORDER BY col_name(s) ASC;
+
+*/
+
+/*
+Aggregate Functions:
+Aggregate functions perform a calculation on a set of values, 
+and return a single value.
+
+- COUNT()
+- MAX()
+- MIN()
+- SUM()
+- AVG()
+
+SELECT max(marks)
+FROM student;
+
+*/
+
+/*
+Group by Clause :
+Groups rows that have the same values into summary rows.
+It collects data from multiple records and groups the result
+by one or more column.
+
+SELECT col1, col2
+FROM table_name
+GROUP BY col_name(s);
+
+*Generally we use group by with some aggregation function.
+
+*/
+
+/*
+Having Clause :
+similar to Where i.e applies some condition on rows.
+But it is used when we want to apply any condition after grouping.
+
+SELECT col1, col2
+FROM table_name
+GROUP BY col_name(s)
+HAVING condition 
+
+- WHERE is for the table, HAVING is for a group
+- Grouping is necessary for HAVING
+
+*/
+
+/*
+General Order:
+
+SELECT column(s)
+FROM table_name
+WHERE condition
+GROUP BY columns 
+HAVING condition
+ORDER BY column(s) ASC;
+*/
+
+/*
+Update Table:
+
+(to update existing rows)
+
+UPDATE table_name
+SET col1 = vol1, col2 - val2
+WHERE condition;
+
+*/
+
+/*
+DELETE table
+(To delete existing rows)
+
+DELETE FROM table_name
+WHERE condition;
+*/
+
+/*
+Alter (to change the schema)
+
+ADD column
+ALTER TABLE table_name
+ADD COLUMN column_name datatype constraint;
+
+DROP Column
+ALTER TABLE table_name
+DROP COLUMN_name;
+
+RENAME Table
+ALTER TABLE table_name
+MODIFY col_name new_datatype new_constraint;
+
+*/
+
+/*
+Truncate (to delete table's data)
+
+TRUNCATE TABLE table_name;
+
+*/
+
+/*
+Practise Qs
+
+Qs Create a database for your college.
+Create a table named Teacher to store (id, name, subject, salary)
+
+Insert following data in the table :
+
+23, "ajay", "math", 50,000
+47, "bharat", "english", 60,000
+18, "chetan", "chemistry", 45,000
+9, "divya", "physics", 75,000
+
+- Select teachers whose salary is more than 55k
+- Rename the salary column for teacher table to ctc
+- Update salary of all teachers by giving them an increament of 25%
+- Add a new column for teachers called city. The default city should be "Gurgoan"
+- Delete the salary column for teacher table
+
+*/
+
+/*
+Practise Qs
+
+Qs. Create a table to store info (roll_no, name, city, marks),
+
+Insert following data in the table :
+
+110, "adam" , "Delhi" , 76
+108, "bob" , "Mumbai" , 65
+124, "casey" , "Pune" , 94
+112, "duke" , "Pune" , 80
+
+- Select all students who scored 75+
+- Find name of all cities where students are from
+- Find the maximum marks of students from each city
+- Find the average of the class
+- Add a column grade, assign grade such that:
+
+marks > 80 , grade = O
+marks 70-80, grade = A
+marks 60-70, grade = B
+
+*/
+
+//NODE WITH SQL
+
+/*
+Using Faker 
+To generate fake data
+
+let getUser = () => {
+    return [
+    faker.datatype.uuid(),
+    faker.internet.userName(),
+    faker.inernet.email(),
+    faker.internet.password(),
+    ];
+};
+
+*/
+
+/*
+MySQL2 Package 
+To connect Node with MySQL
+
+connection.end();   //To close connection
+
+*/ 
