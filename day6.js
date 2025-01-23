@@ -1,4 +1,4 @@
-/*
+
 //shell
 
 mongosh //to start
@@ -10,9 +10,9 @@ R Read    /find
 U update
 D Delete
 
-*/
 
-/*
+
+
 
 BSON ~
 - mongo db convert Json data into binary format called BSON
@@ -29,7 +29,7 @@ BSON
 2) Bson have high datatypes. 
 */
 
-/*
+
 Document & collections
 1) Document: Mongo stores data in form of documents (BSON docs)
 2) Collection: MongoDB stores documents in collections
@@ -46,7 +46,7 @@ when we have group of documents is called collections
 
 */
 
-/*
+
 INSERT in DB
 insertOne
 
@@ -61,9 +61,9 @@ db.student.find()
 if a collection does not exist , Mongo db creates the collection 
 when you first store data for that collection
 
-*/
 
-/*
+
+
 insertMany (array of documents)
 
 db.student.insertMany([{ name: "bob", marks: 65}, {name: "eve", city: "Delhi"}])
@@ -73,9 +73,9 @@ db.collection.insertMany()   //inserts multiple documents into a collection.
 ex. 
 db.student.insertMany([ {name: "anuj", marks: 64, city: "Delhi"},{name: "rashi", marks: 89, city: "Mumbai"}]);
 
-*/
 
-/*
+
+
 FIND in DB
 db.collection.find() // returns everything
 
@@ -89,9 +89,9 @@ db.student.find({ city: "Delhi" });
 
 ex. 2
 db.student.find({ city: "Mumbai" });
-*/
 
-/*
+
+
 Query Operators -
 FIND in DB :
 
@@ -107,9 +107,9 @@ Q. Find students who scored > 75 or live in Delhi
 
 db.student.find( {$or: [ {marks: {$gt: 75}}, {city: "Delhi"}]}  )
 
-*/
 
-/*
+
+
 // UPDATE in Db
 updateOne
 
@@ -126,11 +126,11 @@ db.student.updateMany( {city: "Delhi"}, {$set: {city: "New Delhi"}} )
 
 replace One
 db.student.replaceOne ( {name: "bob"}, {name: "shraddha", marks: 97, state: "Haryana"} )
-*/
 
 
 
-/*
+
+
 Nesting 
 
 {
@@ -142,9 +142,9 @@ Nesting
 to find
 db.student.findOne ( {"performance.marks": 88} )
 
-*/
 
-/*
+
+
 //DELETE in DB
 
 deleteOne
@@ -155,21 +155,20 @@ db.collection.deleteMany(<filter>, <options>)
 
 db.dropDatabase()
 
-*/
 
 
 // MONGO db part2
 
-/*
+
 1) what is mongoose ?
 
 - A library that creates a connection between MongoDB & Node.js Javascript Runtime
 Environment
 
 It is an ODM(Object Data Modelling) Library.
-*/
 
-/*
+
+
 2) Schema :
 
 1) Schema is a overall structure
@@ -181,16 +180,14 @@ const userSchema = new mongoose.Schema ({
   age: Number,
 });
 
-*/
 
-/*
 3) Models 
 models in mongoose is a class with which we construct documents.
 
 const User = mongoose.model("User", userSchema);
 // User is actually a model name 
 
-/*
+
 
 
 4)Insert in mongoose:
@@ -226,12 +223,12 @@ user2
 
 // note:  Mongoose uses operation Buffering
 
-/*
+
 Mongoose lets you start using your models immediately. without 
 waiting for mongoose to establish a connection to MongoDB.
-*/
 
-/*
+
+
 User.insertMany([
     {name: "Tony", email: "tony@gmail.com",age:50},
     {name: "Peter", email: "peter@gmail.com", age: 30},
@@ -239,12 +236,12 @@ User.insertMany([
 ]).then((res) => {
     console.log(res);
 });
-*/
+
 
 
 //6. Find in mongoose
 
-/* 
+ 
 Model.find() // returns a Query Object (thennable)
 
 *Mongoose Queries are not promises. But they have a .then()
@@ -300,18 +297,80 @@ User.deleteMany({ age: {$gt: 40} }).then((res) => {
 console.log(res);
 })
 
+
 //10 Schema validations 
 Bascially Rules for Schema 
 
-const book Schema = mongoose.Schema ({
-title: {
-   type: String,
-   requireed: true,
-},
-author: {
-   type: String,
-},
+// we make a connection
+const mongoose = require("mongoose");
+
+main()
+.then(() => {
+    console.log("connection successful");
+})
+.catch((err) => console.log(err));
+
+async function main() {
+    await mongoose.connect("mongodb://127.0.0.1:27017/amazon");
+}
+
+// than we define the schema
+
+const bookSchema = new mongoose.Schema({
+    title: {
+        type: String,
+        required: true,
+    },
+    author: {
+        type: String,
+    },
+    price: {
+        type: Number,
+    },
+});
+
+// create a model 
+
+const Book = mongoose.model("Book", bookSchema);
+
+let book1 = new Book({
+    title: "Mathematics",
+    author: "rd sharma",
+    price: 1200,
+});
+
+book1
+.save()
+.then((res) => {
+    console.log(res);
+})
+.catch((err) => {
+    console.log(err);
+});
+
+// parse - one type converted into another type 
+
+    11) SchemaType Options
+
+const bookSchema = mongoose.Schema ({
+    title: {
+        type: String,
+        required: true,
+    },
+    author: {
+        type: String,
+    }
 price: {
-   type: Number,
-  },
+    type: Number,
+    min: [1, "please enter a valid price"],    
+},
+discount: {
+    type: Number,
+    default: 0,    
+},
+genre: [String],
+    category: {
+       type: "String",
+       enun: ["fiction", "non-fiction"];
+    },
 });
