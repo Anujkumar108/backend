@@ -156,3 +156,162 @@ db.collection.deleteMany(<filter>, <options>)
 db.dropDatabase()
 
 */
+
+
+// MONGO db part2
+
+/*
+1) what is mongoose ?
+
+- A library that creates a connection between MongoDB & Node.js Javascript Runtime
+Environment
+
+It is an ODM(Object Data Modelling) Library.
+*/
+
+/*
+2) Schema :
+
+1) Schema is a overall structure
+2) Schema defines the shape of the documents within that collection.
+
+const userSchema = new mongoose.Schema ({
+  name: string,
+  email: String,
+  age: Number,
+});
+
+*/
+
+/*
+3) Models 
+models in mongoose is a class with which we construct documents.
+
+const User = mongoose.model("User", userSchema);
+// User is actually a model name 
+
+/*
+
+
+4)Insert in mongoose:
+
+ things we write capital in js convert into small in mongo db
+for ex. if we create a collection in js 
+1. User -> users
+2. Product -> products
+ 
+// Step 1: Create a new user with some details
+const user2 = new User({
+    name: "akira",
+    email: "akirathakur10@gmail.com",
+    age: 19,
+});
+
+// Step 2: Save the user to the database
+user2
+    .save() // Try to save the user
+    .then((res) => {
+        // If successful, print the saved data
+        console.log("User saved:", res);
+    })
+    .catch((err) => {
+        // If there's an error, print the error details
+        console.log("Error occurred:", err);
+    });
+
+*/
+
+// 5) Insert in Mongoose
+
+
+// note:  Mongoose uses operation Buffering
+
+/*
+Mongoose lets you start using your models immediately. without 
+waiting for mongoose to establish a connection to MongoDB.
+*/
+
+/*
+User.insertMany([
+    {name: "Tony", email: "tony@gmail.com",age:50},
+    {name: "Peter", email: "peter@gmail.com", age: 30},
+    {name: "bruce", email: "bruce@gmail.com", age: 47},
+]).then((res) => {
+    console.log(res);
+});
+*/
+
+
+//6. Find in mongoose
+
+/* 
+Model.find() // returns a Query Object (thennable)
+
+*Mongoose Queries are not promises. But they have a .then()
+
+User.find().then((data) => {
+    console.log(data);
+});
+
+User.find({ age: { $gte: 47 } }).then((data) => {
+    console.log(data);
+});
+
+
+//7 UPDATE 
+
+Model.updateOne() -
+
+User.updateOne({ name: "Bruce" }, { age: 49}).then((res) => {
+     console.log(res);
+});
+
+Model.updateMany() -
+
+User.updateMany({ age: { $gt: 45 } }, { age: 45 }).then((res) => {
+     console.log(res); 
+});
+
+//8 FindAndUpdate
+
+Model.findOneAndUpdate()
+
+User.updateMany({ age: { $gt: 45 } }, { age: 45 }).then((res) => {
+    console.log(res);
+});
+
+User.findOneAndUpdate({ name: "Tony }, {age: 60}, { new: true}).then(
+    (data) => {
+    console.log(data);
+    }
+);
+
+//9 Delete in Mongoose
+
+ModeldeleteOne() // returns count
+
+User.deleteOne({ name: "anuj" }).then((res) => {
+console.log(res);
+});
+
+Model.deleteMany() // returns count
+
+User.deleteMany({ age: {$gt: 40} }).then((res) => {
+console.log(res);
+})
+
+//10 Schema validations 
+Bascially Rules for Schema 
+
+const book Schema = mongoose.Schema ({
+title: {
+   type: String,
+   requireed: true,
+},
+author: {
+   type: String,
+},
+price: {
+   type: Number,
+  },
+});
