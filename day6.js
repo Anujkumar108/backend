@@ -329,7 +329,7 @@ const bookSchema = new mongoose.Schema({
     },
 });
 
-// create a model 
+// create a model.
 
 const Book = mongoose.model("Book", bookSchema);
 
