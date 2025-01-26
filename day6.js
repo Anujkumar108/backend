@@ -13,7 +13,6 @@ D Delete
 
 
 
-
 BSON ~
 - mongo db convert Json data into binary format called BSON
 - mongo stored data in BSON format
@@ -42,7 +41,7 @@ Document & collections
 }
 
 this is called as a document in mongo db 
-when we have group of documents is called collections
+when we have group of documents is called collections.
 
 */
 
