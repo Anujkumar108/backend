@@ -67,7 +67,7 @@ insertMany (array of documents)
 
 db.student.insertMany([{ name: "bob", marks: 65}, {name: "eve", city: "Delhi"}])
 
-db.collection.insertMany()   //inserts multiple documents into a collection.
+db.collection.insertMany()   //insert multiple documents into a collection.
 
 ex. 
 db.student.insertMany([ {name: "anuj", marks: 64, city: "Delhi"},{name: "rashi", marks: 89, city: "Mumbai"}]);
@@ -98,7 +98,7 @@ Q. Find students where marks > 75
 
 db.students.find( {marks: {$gt: 75}} )
 
-Q. Find students who live in Delhi or Mumbai
+Q. Find students who live in Delhi or Mumbai?
 
 db.students.find({ city: {$in: ["Delhi", "Mumbai"]}} )
 
